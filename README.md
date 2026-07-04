@@ -6,6 +6,8 @@
 
 Sistema de gerenciamento de acervo culinário desenvolvido para otimizar operações de busca, organização de ingredientes e recomendação de menus sob restrições. O sistema utiliza um **banco de dados em formato JSON (dataset estático)**, permitindo portabilidade e fácil manipulação dos dados de receitas.
 
+As receitas são enriquecidas em tempo de execução com campos auxiliares para a tomada de decisão, como `classe`, `valor_venda`, `popularidade`, `lucro_estimado` e `dificuldade_logistica`.
+
 ---
 
 ## Desenvolvedores
@@ -20,6 +22,16 @@ Sistema de gerenciamento de acervo culinário desenvolvido para otimizar operaç
 * **Tabela Hash:** Implementada manualmente para armazenamento primário e verificação de integridade.
 * **Árvore Trie:** Implementada manualmente para busca rápida de prefixos (nomes e ingredientes).
 * **Algoritmo Guloso:** Motor de recomendação baseado no Problema da Mochila 0/1, otimizando cardápios via densidade de valor ($V_i/C_i$).
+
+---
+
+## Modos do Sistema
+
+* **Consulta Rápida:** busca por nome, categoria, ingrediente ou ID.
+* **Investigação:** auditoria de integridade, duplicidade e conflitos de versão.
+* **Chef:** recomendação gulosa sob orçamento, tempo, dificuldade e disponibilidade de ingredientes.
+* **Logística:** análise operacional com foco em capacidade, tempo médio e carga de produção.
+* **Menu Especial Dia dos Namorados:** seleção de uma entrada, um prato principal e uma sobremesa com base em restrições e critério de otimização.
 
 ---
 
@@ -56,7 +68,8 @@ Sistema de gerenciamento de acervo culinário desenvolvido para otimizar operaç
 py src/main.py
 ```
 
+### Observação
+O menu especial utiliza a base de receitas existente e calcula automaticamente os campos auxiliares necessários para comparar as combinações válidas.
+
 ### Link do repositório:
-* [(https://github.com/Tiago-w/aed2-desafio-cozinha.git](https://github.com/Tiago-w/aed2-desafio-cozinha.git
-)
-)
+* [https://github.com/Tiago-w/aed2-desafio-cozinha.git](https://github.com/Tiago-w/aed2-desafio-cozinha.git)
