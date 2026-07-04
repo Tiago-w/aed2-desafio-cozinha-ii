@@ -1,0 +1,797 @@
+[
+  {
+    "id": "01",
+    "nome": "Omelete Francesa",
+    "categoria": "Café da Manhã",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Ovos",
+      "Manteiga",
+      "Sal",
+      "Pimenta"
+    ],
+    "tempo_preparo": 15,
+    "custo_estimado": 15.5,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "02",
+    "nome": "Sopa de Cebola",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Cebola",
+      "Caldo de Carne",
+      "Queijo",
+      "Pão"
+    ],
+    "tempo_preparo": 40,
+    "custo_estimado": 22.0,
+    "avaliacao": 4.5
+  },
+  {
+    "id": "03",
+    "nome": "Feijoada",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Feijão Preto",
+      "Carne Seca",
+      "Linguiça",
+      "Lombo",
+      "Alho"
+    ],
+    "tempo_preparo": 120,
+    "custo_estimado": 65.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "04",
+    "nome": "Pudim de Leite",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Leite Condensado",
+      "Leite",
+      "Ovos",
+      "Açúcar"
+    ],
+    "tempo_preparo": 90,
+    "custo_estimado": 20.0,
+    "avaliacao": 4.7
+  },
+  {
+    "id": "05",
+    "nome": "Bolo de Cenoura",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Cenoura",
+      "Óleo",
+      "Ovos",
+      "Açúcar",
+      "Farinha",
+      "Chocolate"
+    ],
+    "tempo_preparo": 60,
+    "custo_estimado": 25.0,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "06",
+    "nome": "Spaghetti Carbonara",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Macarrão",
+      "Bacon",
+      "Ovos",
+      "Queijo Parmesão",
+      "Pimenta Preta"
+    ],
+    "tempo_preparo": 25,
+    "custo_estimado": 35.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "07",
+    "nome": "Salada Caesar",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Alface",
+      "Frango",
+      "Croutons",
+      "Parmesão",
+      "Molho Caesar"
+    ],
+    "tempo_preparo": 15,
+    "custo_estimado": 28.0,
+    "avaliacao": 4.3
+  },
+  {
+    "id": "08",
+    "nome": "Risoto de Cogumelos",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Arroz Arborio",
+      "Cogumelos",
+      "Caldo de Legumes",
+      "Parmesão",
+      "Vinho Branco"
+    ],
+    "tempo_preparo": 40,
+    "custo_estimado": 45.0,
+    "avaliacao": 4.7
+  },
+  {
+    "id": "09",
+    "nome": "Tiramisu",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Queijo Mascarpone",
+      "Café",
+      "Biscoito Champagne",
+      "Cacau",
+      "Ovos"
+    ],
+    "tempo_preparo": 30,
+    "custo_estimado": 50.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "10",
+    "nome": "Moqueca de Peixe",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Peixe",
+      "Azeite de Dendê",
+      "Leite de Coco",
+      "Pimentão",
+      "Cebola",
+      "Tomate"
+    ],
+    "tempo_preparo": 60,
+    "custo_estimado": 70.0,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "11",
+    "nome": "Pão de Queijo",
+    "categoria": "Lanche",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Polvilho",
+      "Queijo",
+      "Leite",
+      "Óleo",
+      "Ovos"
+    ],
+    "tempo_preparo": 30,
+    "custo_estimado": 15.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "12",
+    "nome": "Brigadeiro",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Leite Condensado",
+      "Cacau em Pó",
+      "Manteiga",
+      "Granulado"
+    ],
+    "tempo_preparo": 15,
+    "custo_estimado": 10.0,
+    "avaliacao": 5.0
+  },
+  {
+    "id": "13",
+    "nome": "Frango Xadrez",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Frango",
+      "Pimentão",
+      "Amendoim",
+      "Molho Shoyu",
+      "Cebola"
+    ],
+    "tempo_preparo": 30,
+    "custo_estimado": 32.0,
+    "avaliacao": 4.4
+  },
+  {
+    "id": "14",
+    "nome": "Estrogonofe de Frango",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Frango",
+      "Creme de Leite",
+      "Ketchup",
+      "Mostarda",
+      "Champignon"
+    ],
+    "tempo_preparo": 25,
+    "custo_estimado": 30.0,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "15",
+    "nome": "Lasanha à Bolonhesa",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Massa de Lasanha",
+      "Carne Moída",
+      "Molho de Tomate",
+      "Presunto",
+      "Queijo"
+    ],
+    "tempo_preparo": 60,
+    "custo_estimado": 40.0,
+    "avaliacao": 4.7
+  },
+  {
+    "id": "16",
+    "nome": "Ceviche",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Peixe Branco",
+      "Limão",
+      "Cebola Roxa",
+      "Coentro",
+      "Pimenta"
+    ],
+    "tempo_preparo": 20,
+    "custo_estimado": 35.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "17",
+    "nome": "Guacamole",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Abacate",
+      "Tomate",
+      "Cebola",
+      "Limão",
+      "Coentro"
+    ],
+    "tempo_preparo": 15,
+    "custo_estimado": 20.0,
+    "avaliacao": 4.5
+  },
+  {
+    "id": "18",
+    "nome": "Ratatouille",
+    "categoria": "Acompanhamento",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Berinjela",
+      "Abobrinha",
+      "Pimentão",
+      "Tomate",
+      "Cebola",
+      "Alho"
+    ],
+    "tempo_preparo": 50,
+    "custo_estimado": 25.0,
+    "avaliacao": 4.4
+  },
+  {
+    "id": "19",
+    "nome": "Sushi de Salmão",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Arroz para Sushi",
+      "Salmão",
+      "Alga Nori",
+      "Vinagre de Arroz"
+    ],
+    "tempo_preparo": 45,
+    "custo_estimado": 55.0,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "20",
+    "nome": "Yakisoba",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Macarrão",
+      "Carne",
+      "Frango",
+      "Repolho",
+      "Cenoura",
+      "Brócolis",
+      "Molho Shoyu"
+    ],
+    "tempo_preparo": 30,
+    "custo_estimado": 38.0,
+    "avaliacao": 4.5
+  },
+  {
+    "id": "21",
+    "nome": "Hambúrguer Artesanal",
+    "categoria": "Lanche",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Pão de Hambúrguer",
+      "Carne Moída",
+      "Queijo",
+      "Alface",
+      "Tomate",
+      "Bacon"
+    ],
+    "tempo_preparo": 20,
+    "custo_estimado": 30.0,
+    "avaliacao": 4.7
+  },
+  {
+    "id": "22",
+    "nome": "Pizza Margherita",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Massa de Pizza",
+      "Molho de Tomate",
+      "Muçarela",
+      "Manjericão"
+    ],
+    "tempo_preparo": 25,
+    "custo_estimado": 45.0,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "23",
+    "nome": "Nhoque de Batata",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Batata",
+      "Farinha",
+      "Ovos",
+      "Molho de Tomate",
+      "Parmesão"
+    ],
+    "tempo_preparo": 40,
+    "custo_estimado": 25.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "24",
+    "nome": "Torta de Maçã",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Maçã",
+      "Farinha",
+      "Manteiga",
+      "Açúcar",
+      "Canela"
+    ],
+    "tempo_preparo": 60,
+    "custo_estimado": 35.0,
+    "avaliacao": 4.5
+  },
+  {
+    "id": "25",
+    "nome": "Sopa de Tomate",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Tomate",
+      "Cebola",
+      "Alho",
+      "Caldo de Legumes",
+      "Creme de Leite"
+    ],
+    "tempo_preparo": 30,
+    "custo_estimado": 18.0,
+    "avaliacao": 4.3
+  },
+  {
+    "id": "26",
+    "nome": "Bacalhau à Brás",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Bacalhau",
+      "Batata Palha",
+      "Ovos",
+      "Cebola",
+      "Azeitona"
+    ],
+    "tempo_preparo": 45,
+    "custo_estimado": 60.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "27",
+    "nome": "Polenta com Ragù",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Fubá",
+      "Água",
+      "Carne Moída",
+      "Molho de Tomate",
+      "Vinho Tinto"
+    ],
+    "tempo_preparo": 50,
+    "custo_estimado": 35.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "28",
+    "nome": "Bobó de Camarão",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Camarão",
+      "Mandioca",
+      "Leite de Coco",
+      "Azeite de Dendê",
+      "Tomate"
+    ],
+    "tempo_preparo": 60,
+    "custo_estimado": 75.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "29",
+    "nome": "Escondidinho de Carne Seca",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Mandioca",
+      "Carne Seca",
+      "Queijo Coalho",
+      "Manteiga",
+      "Cebola"
+    ],
+    "tempo_preparo": 50,
+    "custo_estimado": 45.0,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "30",
+    "nome": "Empadão de Frango",
+    "categoria": "Lanche",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Farinha",
+      "Manteiga",
+      "Frango",
+      "Milho",
+      "Azeitona",
+      "Catupiry"
+    ],
+    "tempo_preparo": 60,
+    "custo_estimado": 38.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "31",
+    "nome": "Salmão Grelhado",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Salmão",
+      "Limão",
+      "Azeite",
+      "Sal",
+      "Pimenta"
+    ],
+    "tempo_preparo": 20,
+    "custo_estimado": 55.0,
+    "avaliacao": 4.7
+  },
+  {
+    "id": "32",
+    "nome": "Mousse de Maracujá",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Leite Condensado",
+      "Creme de Leite",
+      "Suco de Maracujá"
+    ],
+    "tempo_preparo": 15,
+    "custo_estimado": 15.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "33",
+    "nome": "Panqueca de Carne",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Leite",
+      "Farinha",
+      "Ovos",
+      "Carne Moída",
+      "Molho de Tomate"
+    ],
+    "tempo_preparo": 30,
+    "custo_estimado": 25.0,
+    "avaliacao": 4.5
+  },
+  {
+    "id": "34",
+    "nome": "Kebab de Frango",
+    "categoria": "Lanche",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Pão Sírio",
+      "Frango",
+      "Alface",
+      "Tomate",
+      "Molho de Alho"
+    ],
+    "tempo_preparo": 25,
+    "custo_estimado": 22.0,
+    "avaliacao": 4.4
+  },
+  {
+    "id": "35",
+    "nome": "Falafel",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Grão de Bico",
+      "Cebola",
+      "Alho",
+      "Coentro",
+      "Cominho"
+    ],
+    "tempo_preparo": 45,
+    "custo_estimado": 20.0,
+    "avaliacao": 4.5
+  },
+  {
+    "id": "36",
+    "nome": "Homus",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Grão de Bico",
+      "Tahine",
+      "Limão",
+      "Alho",
+      "Azeite"
+    ],
+    "tempo_preparo": 15,
+    "custo_estimado": 18.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "37",
+    "nome": "Cheesecake de Morango",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Cream Cheese",
+      "Açúcar",
+      "Biscoito",
+      "Manteiga",
+      "Morango"
+    ],
+    "tempo_preparo": 90,
+    "custo_estimado": 50.0,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "38",
+    "nome": "Costela no Bafo",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Costela Bovina",
+      "Sal Grosso",
+      "Alho",
+      "Cebola"
+    ],
+    "tempo_preparo": 180,
+    "custo_estimado": 80.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "39",
+    "nome": "Camarão na Moranga",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Abóbora Moranga",
+      "Camarão",
+      "Catupiry",
+      "Creme de Leite",
+      "Tomate"
+    ],
+    "tempo_preparo": 90,
+    "custo_estimado": 90.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "40",
+    "nome": "Tapioca de Queijo",
+    "categoria": "Café da Manhã",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Goma de Tapioca",
+      "Queijo Coalho",
+      "Manteiga"
+    ],
+    "tempo_preparo": 10,
+    "custo_estimado": 10.0,
+    "avaliacao": 4.5
+  },
+  {
+    "id": "41",
+    "nome": "Açaí na Tigela",
+    "categoria": "Lanche",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Polpa de Açaí",
+      "Banana",
+      "Granola",
+      "Mel"
+    ],
+    "tempo_preparo": 10,
+    "custo_estimado": 18.0,
+    "avaliacao": 4.7
+  },
+  {
+    "id": "42",
+    "nome": "Churros",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Farinha",
+      "Água",
+      "Açúcar",
+      "Doce de Leite",
+      "Canela"
+    ],
+    "tempo_preparo": 30,
+    "custo_estimado": 20.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "43",
+    "nome": "Quiche Lorraine",
+    "categoria": "Lanche",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Farinha",
+      "Manteiga",
+      "Ovos",
+      "Creme de Leite",
+      "Bacon",
+      "Queijo"
+    ],
+    "tempo_preparo": 50,
+    "custo_estimado": 35.0,
+    "avaliacao": 4.7
+  },
+  {
+    "id": "44",
+    "nome": "Sopa de Ervilha",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Ervilha",
+      "Bacon",
+      "Cebola",
+      "Alho",
+      "Caldo de Carne"
+    ],
+    "tempo_preparo": 40,
+    "custo_estimado": 22.0,
+    "avaliacao": 4.4
+  },
+  {
+    "id": "45",
+    "nome": "Creme Brûlée",
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",
+    "ingredientes": [
+      "Creme de Leite",
+      "Ovos",
+      "Açúcar",
+      "Baunilha"
+    ],
+    "tempo_preparo": 60,
+    "custo_estimado": 40.0,
+    "avaliacao": 4.8
+  },
+  {
+    "id": "46",
+    "nome": "Pato com Laranja",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Pato",
+      "Laranja",
+      "Mel",
+      "Vinho Branco",
+      "Caldo de Galinha"
+    ],
+    "tempo_preparo": 120,
+    "custo_estimado": 85.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "47",
+    "nome": "Tacos Mexicanos",
+    "categoria": "Lanche",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Tortilha",
+      "Carne Moída",
+      "Alface",
+      "Queijo",
+      "Pimenta"
+    ],
+    "tempo_preparo": 20,
+    "custo_estimado": 25.0,
+    "avaliacao": 4.5
+  },
+  {
+    "id": "48",
+    "nome": "Filet Mignon ao Molho Madeira",
+    "categoria": "Prato Principal",
+    "tipo de prato": "prato principal",
+    "ingredientes": [
+      "Filet Mignon",
+      "Vinho Madeira",
+      "Champignon",
+      "Caldo de Carne",
+      "Manteiga"
+    ],
+    "tempo_preparo": 40,
+    "custo_estimado": 75.0,
+    "avaliacao": 4.9
+  },
+  {
+    "id": "49",
+    "nome": "Carpaccio de Carne",
+    "categoria": "Entrada",
+    "tipo de prato": "prato de entrada",
+    "ingredientes": [
+      "Carne Bovina",
+      "Parmesão",
+      "Alcaparras",
+      "Azeite",
+      "Mostarda"
+    ],
+    "tempo_preparo": 15,
+    "custo_estimado": 45.0,
+    "avaliacao": 4.6
+  },
+  {
+    "id": "50",
+    "nome": "Sorvete de Baunilha",   
+    "categoria": "Sobremesa",
+    "tipo de prato": "sobremesa",   
+    "ingredientes": [
+      "Leite",
+      "Creme de Leite",
+      "Açúcar",
+      "Baunilha",
+      "Ovos"
+    ],
+    "tempo_preparo": 120,
+    "custo_estimado": 25.0,
+    "avaliacao": 4.7
+  }
+]

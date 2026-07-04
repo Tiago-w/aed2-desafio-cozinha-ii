@@ -1,0 +1,68 @@
+# =========================
+# Arquivos de Sistema (OS)
+# =========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =========================
+# IDEs e Editores
+# =========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.iml
+eclipse-workspace/
+
+# =========================
+# Java
+# =========================
+# Arquivos compilados
+*.class
+
+# Arquivos de log
+*.log
+
+# Pacotes (JAR, WAR, EAR, etc)
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Pastas de build
+bin/
+build/
+target/
+out/
+.gradle/
+
+# =========================
+# C/C++
+# =========================
+*.o
+*.out
+*.exe
+*.dll
+*.so
+*.dylib
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
