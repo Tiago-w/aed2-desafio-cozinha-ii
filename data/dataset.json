@@ -4,6 +4,7 @@
     "nome": "Omelete Francesa",
     "categoria": "Café da Manhã",
     "tipo de prato": "prato principal",
+    "popularidade": 50,
     "ingredientes": [
       "Ovos",
       "Manteiga",
@@ -12,6 +13,9 @@
     ],
     "tempo_preparo": 15,
     "custo_estimado": 15.5,
+    "valor_venda": 29.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.8
   },
   {
@@ -19,6 +23,7 @@
     "nome": "Sopa de Cebola",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 65,
     "ingredientes": [
       "Cebola",
       "Caldo de Carne",
@@ -27,6 +32,9 @@
     ],
     "tempo_preparo": 40,
     "custo_estimado": 22.0,
+    "valor_venda": 42.9,
+    "dificuldade_logistica": "média",
+    "dependencias": [],
     "avaliacao": 4.5
   },
   {
@@ -34,6 +42,7 @@
     "nome": "Feijoada",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 98,
     "ingredientes": [
       "Feijão Preto",
       "Carne Seca",
@@ -43,6 +52,9 @@
     ],
     "tempo_preparo": 120,
     "custo_estimado": 65.0,
+    "valor_venda": 119.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -50,6 +62,7 @@
     "nome": "Pudim de Leite",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 95,
     "ingredientes": [
       "Leite Condensado",
       "Leite",
@@ -58,6 +71,9 @@
     ],
     "tempo_preparo": 90,
     "custo_estimado": 20.0,
+    "valor_venda": 35.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.7
   },
   {
@@ -65,6 +81,7 @@
     "nome": "Bolo de Cenoura",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 92,
     "ingredientes": [
       "Cenoura",
       "Óleo",
@@ -75,6 +92,9 @@
     ],
     "tempo_preparo": 60,
     "custo_estimado": 25.0,
+    "valor_venda": 45.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": ["12"],
     "avaliacao": 4.8
   },
   {
@@ -82,6 +102,7 @@
     "nome": "Spaghetti Carbonara",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 88,
     "ingredientes": [
       "Macarrão",
       "Bacon",
@@ -91,6 +112,9 @@
     ],
     "tempo_preparo": 25,
     "custo_estimado": 35.0,
+    "valor_venda": 59.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.6
   },
   {
@@ -98,6 +122,7 @@
     "nome": "Salada Caesar",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 75,
     "ingredientes": [
       "Alface",
       "Frango",
@@ -107,6 +132,9 @@
     ],
     "tempo_preparo": 15,
     "custo_estimado": 28.0,
+    "valor_venda": 45.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.3
   },
   {
@@ -114,6 +142,7 @@
     "nome": "Risoto de Cogumelos",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 82,
     "ingredientes": [
       "Arroz Arborio",
       "Cogumelos",
@@ -123,6 +152,9 @@
     ],
     "tempo_preparo": 40,
     "custo_estimado": 45.0,
+    "valor_venda": 79.9,
+    "dificuldade_logistica": "média",
+    "dependencias": ["02"],
     "avaliacao": 4.7
   },
   {
@@ -130,6 +162,7 @@
     "nome": "Tiramisu",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 89,
     "ingredientes": [
       "Queijo Mascarpone",
       "Café",
@@ -139,6 +172,9 @@
     ],
     "tempo_preparo": 30,
     "custo_estimado": 50.0,
+    "valor_venda": 89.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -146,6 +182,7 @@
     "nome": "Moqueca de Peixe",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 85,
     "ingredientes": [
       "Peixe",
       "Azeite de Dendê",
@@ -156,6 +193,9 @@
     ],
     "tempo_preparo": 60,
     "custo_estimado": 70.0,
+    "valor_venda": 129.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.8
   },
   {
@@ -163,6 +203,7 @@
     "nome": "Pão de Queijo",
     "categoria": "Lanche",
     "tipo de prato": "prato principal",
+    "popularidade": 100,
     "ingredientes": [
       "Polvilho",
       "Queijo",
@@ -172,6 +213,9 @@
     ],
     "tempo_preparo": 30,
     "custo_estimado": 15.0,
+    "valor_venda": 25.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -179,6 +223,7 @@
     "nome": "Brigadeiro",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 99,
     "ingredientes": [
       "Leite Condensado",
       "Cacau em Pó",
@@ -187,6 +232,9 @@
     ],
     "tempo_preparo": 15,
     "custo_estimado": 10.0,
+    "valor_venda": 18.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 5.0
   },
   {
@@ -194,6 +242,7 @@
     "nome": "Frango Xadrez",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 78,
     "ingredientes": [
       "Frango",
       "Pimentão",
@@ -203,6 +252,9 @@
     ],
     "tempo_preparo": 30,
     "custo_estimado": 32.0,
+    "valor_venda": 55.9,
+    "dificuldade_logistica": "média",
+    "dependencias": [],
     "avaliacao": 4.4
   },
   {
@@ -210,6 +262,7 @@
     "nome": "Estrogonofe de Frango",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 94,
     "ingredientes": [
       "Frango",
       "Creme de Leite",
@@ -219,6 +272,9 @@
     ],
     "tempo_preparo": 25,
     "custo_estimado": 30.0,
+    "valor_venda": 52.9,
+    "dificuldade_logistica": "média",
+    "dependencias": [],
     "avaliacao": 4.8
   },
   {
@@ -226,6 +282,7 @@
     "nome": "Lasanha à Bolonhesa",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 96,
     "ingredientes": [
       "Massa de Lasanha",
       "Carne Moída",
@@ -235,6 +292,9 @@
     ],
     "tempo_preparo": 60,
     "custo_estimado": 40.0,
+    "valor_venda": 69.9,
+    "dificuldade_logistica": "média",
+    "dependencias": ["25"],
     "avaliacao": 4.7
   },
   {
@@ -242,6 +302,7 @@
     "nome": "Ceviche",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 72,
     "ingredientes": [
       "Peixe Branco",
       "Limão",
@@ -251,6 +312,9 @@
     ],
     "tempo_preparo": 20,
     "custo_estimado": 35.0,
+    "valor_venda": 65.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.6
   },
   {
@@ -258,6 +322,7 @@
     "nome": "Guacamole",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 81,
     "ingredientes": [
       "Abacate",
       "Tomate",
@@ -267,6 +332,9 @@
     ],
     "tempo_preparo": 15,
     "custo_estimado": 20.0,
+    "valor_venda": 35.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.5
   },
   {
@@ -274,6 +342,7 @@
     "nome": "Ratatouille",
     "categoria": "Acompanhamento",
     "tipo de prato": "prato principal",
+    "popularidade": 60,
     "ingredientes": [
       "Berinjela",
       "Abobrinha",
@@ -284,6 +353,9 @@
     ],
     "tempo_preparo": 50,
     "custo_estimado": 25.0,
+    "valor_venda": 45.9,
+    "dificuldade_logistica": "média",
+    "dependencias": ["25"],
     "avaliacao": 4.4
   },
   {
@@ -291,6 +363,7 @@
     "nome": "Sushi de Salmão",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 90,
     "ingredientes": [
       "Arroz para Sushi",
       "Salmão",
@@ -299,6 +372,9 @@
     ],
     "tempo_preparo": 45,
     "custo_estimado": 55.0,
+    "valor_venda": 95.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.8
   },
   {
@@ -306,6 +382,7 @@
     "nome": "Yakisoba",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 84,
     "ingredientes": [
       "Macarrão",
       "Carne",
@@ -317,6 +394,9 @@
     ],
     "tempo_preparo": 30,
     "custo_estimado": 38.0,
+    "valor_venda": 65.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.5
   },
   {
@@ -324,6 +404,7 @@
     "nome": "Hambúrguer Artesanal",
     "categoria": "Lanche",
     "tipo de prato": "prato principal",
+    "popularidade": 97,
     "ingredientes": [
       "Pão de Hambúrguer",
       "Carne Moída",
@@ -334,6 +415,9 @@
     ],
     "tempo_preparo": 20,
     "custo_estimado": 30.0,
+    "valor_venda": 49.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.7
   },
   {
@@ -341,6 +425,7 @@
     "nome": "Pizza Margherita",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 95,
     "ingredientes": [
       "Massa de Pizza",
       "Molho de Tomate",
@@ -349,6 +434,9 @@
     ],
     "tempo_preparo": 25,
     "custo_estimado": 45.0,
+    "valor_venda": 75.9,
+    "dificuldade_logistica": "média",
+    "dependencias": ["25"],
     "avaliacao": 4.8
   },
   {
@@ -356,6 +444,7 @@
     "nome": "Nhoque de Batata",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 77,
     "ingredientes": [
       "Batata",
       "Farinha",
@@ -365,6 +454,9 @@
     ],
     "tempo_preparo": 40,
     "custo_estimado": 25.0,
+    "valor_venda": 45.9,
+    "dificuldade_logistica": "média",
+    "dependencias": ["25"],
     "avaliacao": 4.6
   },
   {
@@ -372,6 +464,7 @@
     "nome": "Torta de Maçã",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 80,
     "ingredientes": [
       "Maçã",
       "Farinha",
@@ -381,6 +474,9 @@
     ],
     "tempo_preparo": 60,
     "custo_estimado": 35.0,
+    "valor_venda": 65.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.5
   },
   {
@@ -388,6 +484,7 @@
     "nome": "Sopa de Tomate",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 68,
     "ingredientes": [
       "Tomate",
       "Cebola",
@@ -397,6 +494,9 @@
     ],
     "tempo_preparo": 30,
     "custo_estimado": 18.0,
+    "valor_venda": 32.9,
+    "dificuldade_logistica": "média",
+    "dependencias": [],
     "avaliacao": 4.3
   },
   {
@@ -404,6 +504,7 @@
     "nome": "Bacalhau à Brás",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 83,
     "ingredientes": [
       "Bacalhau",
       "Batata Palha",
@@ -413,6 +514,9 @@
     ],
     "tempo_preparo": 45,
     "custo_estimado": 60.0,
+    "valor_venda": 110.9,
+    "dificuldade_logistica": "média",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -420,6 +524,7 @@
     "nome": "Polenta com Ragù",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 70,
     "ingredientes": [
       "Fubá",
       "Água",
@@ -429,6 +534,9 @@
     ],
     "tempo_preparo": 50,
     "custo_estimado": 35.0,
+    "valor_venda": 59.9,
+    "dificuldade_logistica": "média",
+    "dependencias": ["25"],
     "avaliacao": 4.6
   },
   {
@@ -436,6 +544,7 @@
     "nome": "Bobó de Camarão",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 86,
     "ingredientes": [
       "Camarão",
       "Mandioca",
@@ -445,6 +554,9 @@
     ],
     "tempo_preparo": 60,
     "custo_estimado": 75.0,
+    "valor_venda": 135.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -452,6 +564,7 @@
     "nome": "Escondidinho de Carne Seca",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 91,
     "ingredientes": [
       "Mandioca",
       "Carne Seca",
@@ -461,6 +574,9 @@
     ],
     "tempo_preparo": 50,
     "custo_estimado": 45.0,
+    "valor_venda": 79.9,
+    "dificuldade_logistica": "média",
+    "dependencias": [],
     "avaliacao": 4.8
   },
   {
@@ -468,6 +584,7 @@
     "nome": "Empadão de Frango",
     "categoria": "Lanche",
     "tipo de prato": "prato principal",
+    "popularidade": 89,
     "ingredientes": [
       "Farinha",
       "Manteiga",
@@ -478,6 +595,9 @@
     ],
     "tempo_preparo": 60,
     "custo_estimado": 38.0,
+    "valor_venda": 65.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.6
   },
   {
@@ -485,6 +605,7 @@
     "nome": "Salmão Grelhado",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 85,
     "ingredientes": [
       "Salmão",
       "Limão",
@@ -494,6 +615,9 @@
     ],
     "tempo_preparo": 20,
     "custo_estimado": 55.0,
+    "valor_venda": 98.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.7
   },
   {
@@ -501,6 +625,7 @@
     "nome": "Mousse de Maracujá",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 93,
     "ingredientes": [
       "Leite Condensado",
       "Creme de Leite",
@@ -508,6 +633,9 @@
     ],
     "tempo_preparo": 15,
     "custo_estimado": 15.0,
+    "valor_venda": 25.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.6
   },
   {
@@ -515,6 +643,7 @@
     "nome": "Panqueca de Carne",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 88,
     "ingredientes": [
       "Leite",
       "Farinha",
@@ -524,6 +653,9 @@
     ],
     "tempo_preparo": 30,
     "custo_estimado": 25.0,
+    "valor_venda": 45.9,
+    "dificuldade_logistica": "média",
+    "dependencias": ["25"],
     "avaliacao": 4.5
   },
   {
@@ -531,6 +663,7 @@
     "nome": "Kebab de Frango",
     "categoria": "Lanche",
     "tipo de prato": "prato principal",
+    "popularidade": 74,
     "ingredientes": [
       "Pão Sírio",
       "Frango",
@@ -540,6 +673,9 @@
     ],
     "tempo_preparo": 25,
     "custo_estimado": 22.0,
+    "valor_venda": 42.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.4
   },
   {
@@ -547,6 +683,7 @@
     "nome": "Falafel",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 66,
     "ingredientes": [
       "Grão de Bico",
       "Cebola",
@@ -556,6 +693,9 @@
     ],
     "tempo_preparo": 45,
     "custo_estimado": 20.0,
+    "valor_venda": 38.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.5
   },
   {
@@ -563,6 +703,7 @@
     "nome": "Homus",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 71,
     "ingredientes": [
       "Grão de Bico",
       "Tahine",
@@ -572,6 +713,9 @@
     ],
     "tempo_preparo": 15,
     "custo_estimado": 18.0,
+    "valor_venda": 32.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.6
   },
   {
@@ -579,6 +723,7 @@
     "nome": "Cheesecake de Morango",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 94,
     "ingredientes": [
       "Cream Cheese",
       "Açúcar",
@@ -588,6 +733,9 @@
     ],
     "tempo_preparo": 90,
     "custo_estimado": 50.0,
+    "valor_venda": 85.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.8
   },
   {
@@ -595,6 +743,7 @@
     "nome": "Costela no Bafo",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 92,
     "ingredientes": [
       "Costela Bovina",
       "Sal Grosso",
@@ -603,6 +752,9 @@
     ],
     "tempo_preparo": 180,
     "custo_estimado": 80.0,
+    "valor_venda": 145.9,
+    "dificuldade_logistica": "média",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -610,6 +762,7 @@
     "nome": "Camarão na Moranga",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 87,
     "ingredientes": [
       "Abóbora Moranga",
       "Camarão",
@@ -619,6 +772,9 @@
     ],
     "tempo_preparo": 90,
     "custo_estimado": 90.0,
+    "valor_venda": 165.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -626,6 +782,7 @@
     "nome": "Tapioca de Queijo",
     "categoria": "Café da Manhã",
     "tipo de prato": "prato principal",
+    "popularidade": 82,
     "ingredientes": [
       "Goma de Tapioca",
       "Queijo Coalho",
@@ -633,6 +790,9 @@
     ],
     "tempo_preparo": 10,
     "custo_estimado": 10.0,
+    "valor_venda": 18.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.5
   },
   {
@@ -640,6 +800,7 @@
     "nome": "Açaí na Tigela",
     "categoria": "Lanche",
     "tipo de prato": "prato principal",
+    "popularidade": 89,
     "ingredientes": [
       "Polpa de Açaí",
       "Banana",
@@ -648,6 +809,9 @@
     ],
     "tempo_preparo": 10,
     "custo_estimado": 18.0,
+    "valor_venda": 32.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.7
   },
   {
@@ -655,6 +819,7 @@
     "nome": "Churros",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 96,
     "ingredientes": [
       "Farinha",
       "Água",
@@ -664,6 +829,9 @@
     ],
     "tempo_preparo": 30,
     "custo_estimado": 20.0,
+    "valor_venda": 35.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.6
   },
   {
@@ -671,6 +839,7 @@
     "nome": "Quiche Lorraine",
     "categoria": "Lanche",
     "tipo de prato": "prato principal",
+    "popularidade": 75,
     "ingredientes": [
       "Farinha",
       "Manteiga",
@@ -681,6 +850,9 @@
     ],
     "tempo_preparo": 50,
     "custo_estimado": 35.0,
+    "valor_venda": 55.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.7
   },
   {
@@ -688,6 +860,7 @@
     "nome": "Sopa de Ervilha",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 55,
     "ingredientes": [
       "Ervilha",
       "Bacon",
@@ -697,6 +870,9 @@
     ],
     "tempo_preparo": 40,
     "custo_estimado": 22.0,
+    "valor_venda": 38.9,
+    "dificuldade_logistica": "média",
+    "dependencias": [],
     "avaliacao": 4.4
   },
   {
@@ -704,6 +880,7 @@
     "nome": "Creme Brûlée",
     "categoria": "Sobremesa",
     "tipo de prato": "sobremesa",
+    "popularidade": 86,
     "ingredientes": [
       "Creme de Leite",
       "Ovos",
@@ -712,6 +889,9 @@
     ],
     "tempo_preparo": 60,
     "custo_estimado": 40.0,
+    "valor_venda": 68.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.8
   },
   {
@@ -719,6 +899,7 @@
     "nome": "Pato com Laranja",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 65,
     "ingredientes": [
       "Pato",
       "Laranja",
@@ -728,6 +909,9 @@
     ],
     "tempo_preparo": 120,
     "custo_estimado": 85.0,
+    "valor_venda": 155.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -735,6 +919,7 @@
     "nome": "Tacos Mexicanos",
     "categoria": "Lanche",
     "tipo de prato": "prato principal",
+    "popularidade": 85,
     "ingredientes": [
       "Tortilha",
       "Carne Moída",
@@ -744,6 +929,9 @@
     ],
     "tempo_preparo": 20,
     "custo_estimado": 25.0,
+    "valor_venda": 45.9,
+    "dificuldade_logistica": "baixa",
+    "dependencias": [],
     "avaliacao": 4.5
   },
   {
@@ -751,6 +939,7 @@
     "nome": "Filet Mignon ao Molho Madeira",
     "categoria": "Prato Principal",
     "tipo de prato": "prato principal",
+    "popularidade": 92,
     "ingredientes": [
       "Filet Mignon",
       "Vinho Madeira",
@@ -760,6 +949,9 @@
     ],
     "tempo_preparo": 40,
     "custo_estimado": 75.0,
+    "valor_venda": 135.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.9
   },
   {
@@ -767,6 +959,7 @@
     "nome": "Carpaccio de Carne",
     "categoria": "Entrada",
     "tipo de prato": "prato de entrada",
+    "popularidade": 79,
     "ingredientes": [
       "Carne Bovina",
       "Parmesão",
@@ -776,13 +969,17 @@
     ],
     "tempo_preparo": 15,
     "custo_estimado": 45.0,
+    "valor_venda": 78.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.6
   },
   {
     "id": "50",
-    "nome": "Sorvete de Baunilha",   
+    "nome": "Sorvete de Baunilha",
     "categoria": "Sobremesa",
-    "tipo de prato": "sobremesa",   
+    "tipo de prato": "sobremesa",
+    "popularidade": 95,
     "ingredientes": [
       "Leite",
       "Creme de Leite",
@@ -792,6 +989,9 @@
     ],
     "tempo_preparo": 120,
     "custo_estimado": 25.0,
+    "valor_venda": 45.9,
+    "dificuldade_logistica": "alta",
+    "dependencias": [],
     "avaliacao": 4.7
   }
 ]
