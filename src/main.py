@@ -3,18 +3,12 @@ import os
 
 from hash import TabelaHash
 from trie import ArvoreTrie
-from guloso import recomendar_menu_avancado, recomendar_menu_namorados
-from grafo import GrafoDependencias, GrafoLogistica
-
-
-def carregar_grafo_producao(receitas):
-    grafo = GrafoDependencias()
-    for r in receitas:
-        grafo.adicionar_receita(r['id'])
-        if 'dependencias' in r:
-            for dep in r['dependencias']:
-                grafo.adicionar_dependencia(dep, r['id'])
-    return grafo
+from guloso import recomendar_menu_avancado
+from grafo import OficinaProducao
+from mochila01 import MenuVIPOtimizador
+from grafoavançado import PesadeloLogistico
+from caixeiroviajante import PlanejamentoEntregasTSP
+from desafio_extra import MenuDiaDosNamorados
 
 # saída colorida e caixas com bordas
 try:
@@ -83,9 +77,12 @@ def carregar_dados():
 
 
 def main():
-    receitas = carregar_dados()
-    if not receitas:
+    dataset = carregar_dados()
+    if not dataset:
         return
+
+    receitas = dataset.get("receitas", [])
+    rotas = dataset.get("rotas_logisticas", [])
 
     investigador = TabelaHash(tamanho_inicial=20)
     busca_rapida = ArvoreTrie()
@@ -108,23 +105,24 @@ def main():
         for palavra in nome.split():
             busca_rapida.inserir(palavra, id_receita)
 
-    grafo_producao = carregar_grafo_producao(receitas)
-
     while True:
         linhas = [
-            "1. Consulta Rápida",
-            "2. Investigação e Produção (Mód 5)",
-            "3. O Chef Responde (Mód 6)",
-            "4. Logística Delivery (Mód 7)",
-            "5. Especial Dia dos Namorados",
-            "6. Laboratório (Inovação - Mód 8)",
+            "1. Modo Consulta Rápida",
+            "2. Modo Investigação",
+            "3. Modo Chef",
+            "4. Modo Oficina de Produção", 
+            "5. Modo Menu VIP (Otimização)",
+            "6. Modo Pesadelo Logístico",  
+            "7. Modo Inovação do Chef (Entregas TSP)", 
+            "8. Modo Especial Dia dos Namorados", 
             "0. Sair",
         ]
         print_boxed(" Desafio na Cozinha ", linhas, color_name="cyan")
+
         opcao = input(color("Escolha uma opção: ", "cyan"))
 
         if opcao == "1":
-            print("\nConsulta rápida")
+            print("\n- Consulta rápida -")
             print("A) Por Nome | B) Por Categoria | C) Por Ingrediente | D) Por ID")
             sub_op = input("Escolha o filtro: ").upper()
 
@@ -135,7 +133,9 @@ def main():
                     f"Receitas encontradas: {[indice_ids[i]['nome'] for i in ids] if ids else 'Nenhuma.'}"
                 )
             elif sub_op == "B":
-                cat = input("Digite a categoria (entrada/principal/sobremesa): ").lower()
+                cat = input(
+                    "Digite a categoria (entrada/principal/sobremesa): "
+                ).lower()
                 res = [r["nome"] for r in receitas if r.get("categoria").lower() == cat]
                 print(f"Receitas da categoria '{cat}': {res}")
             elif sub_op == "C":
@@ -156,24 +156,45 @@ def main():
                 )
 
         elif opcao == "2":
-            print("\n- Modo Investigação e Produção -")
-            print("--- Integridade (T1) ---")
+
+            print("- Modo investigação -\n")
             print("1. Verificar integridade de uma receita por ID")
             print("2. Detectar conteúdos duplicados no sistema")
             print("3. Detectar conflitos de versões de uma receita")
             print("4. Validar integridade total do arquivo JSON")
-            print("--- Oficina de Produção (Módulo 5) ---")
-            print("5. Gerar sequência correta de produção (Ordenação Topológica)")
-            print("6. Verificar se existem erros de dependência (Ciclos)")
 
-            sub_opcao = input("Escolha uma opção: ")
+                ###########   ---   id 10 para teste
+            # receita_alvo = indice_ids.get("10")
+            # if receita_alvo:
+            #     nome_receita = receita_alvo["nome"]
+                
+            #     hash_original, _ = investigador.gerar_assinatura(
+            #        nome_receita, receita_alvo["ingredientes"]
+            #     )
+
+            #     ingrediente_antigo = receita_alvo["ingredientes"][0]
+            #     receita_alvo["ingredientes"][0] = "Pão"
+
+            #     hash_nova, _ = investigador.gerar_assinatura(
+            #     nome_receita, receita_alvo["ingredientes"]
+            #     )
+                
+                ############
+            sub_opcao = input("Escolha a verificação: ")
 
             if sub_opcao == "1":
-                id_verificar = input("Digite o ID da receita para checar: ").strip()
+
+
+                id_verificar = input(
+                    "Digite o ID da receita para checar (tente o ID 10): "
+                ).strip()
                 r = indice_ids.get(id_verificar)
+
                 if r:
-                    status = investigador.verificar_integridade(r["id"], r["nome"], r["ingredientes"])
-                    print(f"-> Receita '{r['nome']}': {'Íntegra' if status else 'Alterada'}")
+                    status = investigador.verificar_integridade(
+                        r["id"], r["nome"], r["ingredientes"]
+                    )
+                    print(f"-> Receita '{r['nome']}': {'Íntegra' if status else 'Alterado'}")
                 else:
                     print("Código de receita inexistente.")
 
@@ -182,43 +203,12 @@ def main():
                 print("\nProcurando receitas com conteudo duplicado:")
                 if duplicados:
                     for ass, lista in duplicados.items():
-                        print(f" -> Alerta: Mesmo conteúdo compartilhado por IDs: {lista}")
+                        print(
+                            f" -> Alerta: Mesmo conteúdo compartilhado por IDs diferentes: {lista}"
+                        )
                 else:
                     print("Nenhuma receita com conteúdo duplicado foi encontrada.")
 
-            elif sub_opcao == "3":
-                _, conflitos = investigador.auditoria_de_duplicados_e_conflitos()
-                if conflitos:
-                    for nome_conflito, registros in conflitos.items():
-                        print(f" -> Conflito detectado na receita '{nome_conflito.upper()}':")
-                        for id_rec, ass in registros:
-                            print(f"    * ID: {id_rec} | Assinatura: {ass}")
-                else:
-                    print("Nenhum conflito de versão detectado.")
-
-            elif sub_opcao == "4":
-                violacoes = sum(1 for r in receitas if not investigador.verificar_integridade(r["id"], r["nome"], r["ingredientes"]))
-                if violacoes == 0:
-                    print("Sucesso: todos os dados batem com a Tabela Hash.")
-                else:
-                    print(f"Auditoria concluída: {violacoes} adulterações encontradas.")
-            
-            elif sub_opcao == "5":
-                ordem, mensagem = grafo_producao.gerar_ordem_producao()
-                if ordem:
-                    nomes_ordem = [indice_ids[i]['nome'] for i in ordem if i in indice_ids]
-                    print(color("\nSequência de Produção Sugerida:", "green"))
-                    print(" -> ".join(nomes_ordem))
-                else:
-                    print(color(f"\n{mensagem}", "red"))
-
-            elif sub_opcao == "6":
-                ordem, mensagem = grafo_producao.gerar_ordem_producao()
-                if ordem is None:
-                    print(color(f"\nAlerta Crítico: {mensagem}", "red"))
-                    print("Não é possível cozinhar o menu devido a um loop nas dependências!")
-                else:
-                    print(color("\nNenhum erro de dependência. O cardápio é viável!", "green"))
             elif sub_opcao == "3":
                 _, conflitos = investigador.auditoria_de_duplicados_e_conflitos()
                 print(
@@ -236,7 +226,7 @@ def main():
 
             elif sub_opcao == "4":
                 print("\nLendo arquivo e comprando com a hash")
-
+                
                 violacoes = 0
                 for r in receitas:
                     if not investigador.verificar_integridade(
@@ -252,7 +242,6 @@ def main():
                     )
                 else:
                     print(f"Auditoria concluída: {violacoes} adulterações encontradas.")
-
         elif opcao == "3":
             print("\n- Modo chefe  -")
             orcamento = float(input("Orçamento Máximo (R$): ") or "999")
@@ -277,72 +266,178 @@ def main():
                 print("Nenhuma sugestão de menu foi gerada.")
 
         elif opcao == "4":
-            print("\n- Logística Delivery -")
-            caminho_mapa = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "logistica.json")
-            if not os.path.exists(caminho_mapa):
-                print("Erro: logistica.json não encontrado. Rode o script gerar_mapa.py primeiro.")
-                continue
+            print("\n- Modo Oficina de Produção -")
+            oficina = OficinaProducao()
 
-            with open(caminho_mapa, "r") as f:
-                dados_mapa = json.load(f)
+            print("[+] Carregando dependências do banco de dados...")
+            for r in receitas:
+                nome_dependente = r.get("nome")
+                pre_requisitos = r.get("pre_requisitos", []) 
+                
+                oficina.adicionar_preparo(nome_dependente)
+                
+                for pre_req in pre_requisitos:
+                    oficina.adicionar_dependencia(pre_req, nome_dependente)
 
-            grafo_mapa = GrafoLogistica()
-            for u, v, peso in dados_mapa['arestas']:
-                grafo_mapa.adicionar_aresta(u, v, peso)
+            print("\n1. Qual a sequência correta para produzir o menu do dia?")
+            sucesso, resultado = oficina.gerar_sequencia_producao()
+            if sucesso:
+                print(f" -> Sequência Válida: {resultado}")
+            else:
+                print(color(f" -> ERRO CRÍTICO: {resultado}", "red"))
 
-            print("A) Calcular Rota mais rápida (Dijkstra)")
-            print("B) Expandir infraestrutura de Cozinhas (Árvore Geradora Mínima - Prim)")
-            sub = input("Opção: ").upper()
-
-            if sub == "A":
-                origem = input("Ponto de Origem (Ex: Ponto_1): ")
-                destino = input("Ponto de Destino (Ex: Ponto_30): ")
-                try:
-                    rota, tempo = grafo_mapa.menor_caminho_dijkstra(origem, destino)
-                    print(f"\nRota mais rápida: {' -> '.join(rota)}")
-                    print(f"Tempo estimado da viagem: {tempo} minutos")
-                except Exception:
-                    print("Ponto não encontrado no sistema.")
-
-            elif sub == "B":
-                mst, custo = grafo_mapa.rede_minima_prim("Ponto_1")
-                print(f"\nPara interligar todas as cozinhas e bairros, o custo/distância mínima será: {custo}")
-                print(f"Conexões a construir: {len(mst)} ruas essenciais.")
+            receita_alvo = input("\n2. Digite o nome da receita para ver seus pré-requisitos: ").strip()
+            pre_reqs = oficina.listar_prerequisitos_de(receita_alvo)
+            print(f" -> Pré-requisitos para {receita_alvo}: {pre_reqs}\n")
 
         elif opcao == "5":
-            print("\n- Menu Especial Dia dos Namorados -")
-            orc = float(input("Orçamento Máximo de Custo (R$): ") or "100")
-            tmp = float(input("Tempo Máximo de Preparo (minutos): ") or "120")
+            print("\n- Modo Menu Degustação VIP -")
+            
+            try:
+                tempo_max = int(input("Tempo total disponível para o evento (minutos): "))
+            except ValueError:
+                print("Por favor, digite um número inteiro.")
+                continue
+                
+            print("Critérios disponíveis: avaliacao, lucro, popularidade")
+            criterio = input("O que deseja maximizar? ").strip().lower()
+            
+            # Validação simples
+            if criterio not in ['avaliacao', 'lucro', 'popularidade']:
+                criterio = 'avaliacao'
+                print("Critério inválido. Usando 'avaliacao' como padrão.")
 
-            menu_namorados = recomendar_menu_namorados(receitas, {'orcamento_maximo': orc, 'tempo_maximo': tmp})
-            if menu_namorados:
-                print(color("\nSugestão do Chef para o Dia dos Namorados:", "magenta"))
-                print(f"-> Entrada: {menu_namorados['entrada']['nome']}")
-                print(f"-> Principal: {menu_namorados['principal']['nome']}")
-                print(f"-> Sobremesa: {menu_namorados['sobremesa']['nome']}")
-                print(f"\nLucro Estimado do Menu: R$ {menu_namorados['lucro']:.2f}")
-                print(f"Avaliação Média Geral: {menu_namorados['avaliacao_media']:.1f}")
-                print(f"Tempo Total: {menu_namorados['tempo_total']} min")
-                print(color("\nJustificativa:", "yellow"))
-                print("O menu foi escolhido por maximizar a relação entre o lucro estimado")
-                print("e a avaliação média dos clientes, respeitando os limites de tempo e orçamento,")
-                print("garantindo que no máximo um prato possua dificuldade logística 'alta'.")
+            otimizador = MenuVIPOtimizador(receitas)
+            menu_vip, valor_alcancado, tempo_gasto = otimizador.otimizar_por_tempo(tempo_max, criterio)
+
+            print_boxed(" Proposta de Menu VIP ", [
+                f"Tempo Utilizado: {tempo_gasto}/{tempo_max} min",
+                f"Pontuação Total ({criterio}): {valor_alcancado:.2f}"
+            ],)
+            
+            if menu_vip:
+                for prato in menu_vip:
+                    print(f" -> {prato['nome']} ({prato['tempo_preparo']} min)")
             else:
-                print("A cozinha não consegue produzir um menu completo viável com essas restrições!")
+                print("Nenhuma receita cabe nesse tempo!")
 
         elif opcao == "6":
-            print("\n- Laboratório de Inovação: Comunidades Gastronômicas -")
-            print("Analisando famílias de receitas ligadas por dependências...")
-            familias = grafo_producao.identificar_comunidades()
-            if familias:
-                for idx, familia in enumerate(familias, 1):
-                    nomes = [indice_ids[i]['nome'] for i in familia if i in indice_ids]
-                    print(f"Família {idx}: {nomes}")
+            print("\n- Modo Pesadelo Logístico (Grafos Avançados) -")
+            
+            logistica = PesadeloLogistico()
+            
+            # Carregando do JSON dinamicamente
+            for rota in rotas:
+                logistica.adicionar_rota(
+                    rota["origem"], 
+                    rota["destino"], 
+                    rota["tempo_minutos"], 
+                    rota["limite_pedidos"]
+                )
+            
+            print("\n1. Menor Rede de Conexões (Kruskal - MST)")
+            print("Objetivo: Interligar todos os pontos operacionais com o menor custo/tempo.")
+            rede, custo = logistica.calcular_menor_infraestrutura()
+            for u, v, peso in rede:
+                print(f"Instalar conexão: {u} <-> {v} (Custo: {peso})")
+            print(f"Custo Total Mínimo da Infraestrutura: {custo}\n")
+            
+            print("2. Rotas e Estimativas de Tempo (Dijkstra)")
+            
+            # Deixando dinâmico para o usuário escolher a rota!
+            origem_busca = input("Digite o ponto de origem (ex: Cozinha Matriz): ").strip()
+            destino_busca = input("Digite o destino (ex: Bairro Nobre): ").strip()
+            
+            caminho, tempo = logistica.calcular_rota_mais_rapida(origem_busca, destino_busca)
+            if caminho:
+                print(f"   -> Rota Sugerida: {' -> '.join(caminho)}")
+                print(f"   => Tempo Estimado: {tempo} minutos\n")
             else:
-                print("Não foram encontradas famílias conexas.")
+                print("   -> Rota inatingível ou pontos não cadastrados.\n")
+            
+            print("3. Capacidade Máxima e Gargalos (Edmonds-Karp)")
+            print(f"Objetivo: Quantos pedidos simultâneos podem ir de {origem_busca} para {destino_busca}?")
+            capacidade = logistica.calcular_capacidade_maxima(origem_busca, destino_busca)
+            print(f"   => Capacidade Simultânea Máxima: {capacidade} pedidos\n")
+
+        elif opcao == "7":
+            print("\n- Modo Inovação do Chef (Múltiplas Entregas - TSP) -")
+            
+            # Carregando a malha logística silenciosamente para o TSP poder usar
+            logistica = PesadeloLogistico()
+            for rota in rotas:
+                logistica.adicionar_rota(rota["origem"], rota["destino"], rota["tempo_minutos"], rota["limite_pedidos"])
+            
+            tsp = PlanejamentoEntregasTSP(logistica)
+            
+            # 1. Pegando a origem de forma dinâmica
+            origem = input("Digite o ponto de partida do entregador (ex: Cozinha Matriz): ").strip().title()
+            
+            # 2. Pegando os múltiplos destinos de forma dinâmica
+            print("\nDigite os bairros de entrega separados por vírgula.")
+            entrada_bairros = input("Ex (Bairro Nobre, Bairro Industrial, Bairro Centro): ")
+            
+            # 3. Tratamento de dados: separa por vírgula, tira espaços em branco e arruma as maiúsculas
+            bairros_para_visitar = [b.strip().title() for b in entrada_bairros.split(",") if b.strip()]
+            
+            if not bairros_para_visitar:
+                print(color("   -> Erro: Você não digitou nenhum bairro válido.\n", "red"))
+                continue
+            
+            print(f"\nO entregador sairá da(o) {origem}.")
+            print(f"Ele precisa entregar pedidos nos seguintes locais: {', '.join(bairros_para_visitar)}")
+
+            # 4. Chama o algoritmo com as listas dinâmicas
+            melhor_rota, menor_tempo = tsp.calcular_rota_tsp_exata(origem, bairros_para_visitar)
+            
+            if melhor_rota:
+                print(f"\n   -> Sequência Ótima de Entrega:")
+                print(f"      {' -> '.join(melhor_rota)}")
+                print(f"   -> Tempo Total no trânsito (ida e volta): {menor_tempo} minutos\n")
+            else:
+                print("   -> Erro: Não é possível visitar todos esses bairros (rota inatingível).\n")
+        elif opcao == "8":
+            print("\n- Modo Especial Dia dos Namorados -")
+            try:
+                tempo_max = int(input("Tempo máximo de preparo (minutos): ").strip())
+                custo_max = float(input("Custo limite para o menu (R$): ").strip())
+                
+                print("Objetivo de otimização (digite o número):")
+                print("1. Maior Lucro")
+                print("2. Melhor Avaliação Média")
+                print("3. Menor Tempo de Preparo")
+                escolha_obj = input("Opção: ").strip()
+                
+                mapa_objetivos = {"1": "lucro", "2": "avaliacao", "3": "tempo"}
+                objetivo = mapa_objetivos.get(escolha_obj, "lucro")
+
+                # Instancia a classe passando a lista de receitas carregada do JSON
+                gerador_menu = MenuDiaDosNamorados(receitas)
+                melhor_menu = gerador_menu.selecionar_melhor_menu(tempo_max, custo_max, objetivo)
+                
+                if melhor_menu:
+                    print(color("\nMenu Especial Dia dos Namorados:", "cyan"))
+                    print(f"Entrada: {melhor_menu['entrada']}")
+                    print(f"Prato principal: {melhor_menu['principal']}")
+                    print(f"Sobremesa: {melhor_menu['sobremesa']}\n")
+                    print(f"Valor total de venda: R$ {melhor_menu['valor_venda']:.2f}")
+                    print(f"Custo estimado: R$ {melhor_menu['custo_total']:.2f}")
+                    print(f"Lucro estimado: R$ {melhor_menu['lucro_total']:.2f}")
+                    print(f"Tempo total de preparo: {melhor_menu['tempo_total']} minutos")
+                    print(f"Avaliação média: {melhor_menu['avaliacao_media']}")
+                    print(f"Dificuldade logística: {melhor_menu['dificuldade_logistica']}\n")
+                    
+                    # Justificativa simples
+                    print("Justificativa:")
+                    print(f"O menu foi escolhido por otimizar o critério de '{objetivo}' dentro dos limites de custo (R$ {custo_max:.2f}) e tempo ({tempo_max} min).")
+                else:
+                    print(color("\n-> Não foi possível encontrar um menu que atenda a essas restrições.", "red"))
+
+            except ValueError:
+                print(color("-> Erro: Digite valores numéricos válidos para tempo e custo.", "red"))
 
         elif opcao == "0":
-            print("Encerrando a cozinha. Au revoir!")
+            print("Encerrando.")
             break
 
 
