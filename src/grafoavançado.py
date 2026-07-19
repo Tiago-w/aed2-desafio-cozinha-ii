@@ -3,40 +3,30 @@ from collections import defaultdict, deque
 
 class PesadeloLogistico:
     def __init__(self):
-        # Grafo para rotas e distâncias (Dijkstra e Kruskal)
+        # dijkstra e kruskal
         self.grafo_distancias = defaultdict(list)
-        # Grafo de capacidades para fluxo máximo (Edmonds-Karp)
+        # fluxo bfs edmonds
         self.grafo_capacidades = defaultdict(dict)
-        self.arestas = [] # Lista de arestas para o Kruskal (origem, destino, peso)
+        self.arestas = [] 
         self.vertices = set()
 
     def adicionar_rota(self, origem, destino, tempo_distancia, capacidade_pedidos):
-        """
-        Cadastra uma rota entre dois pontos.
-        tempo_distancia: usado para rotas e infraestrutura.
-        capacidade_pedidos: limite de pedidos/entregadores que passam por ali simultaneamente.
-        """
+
         self.vertices.add(origem)
         self.vertices.add(destino)
         
-        # Para rotas bidirecionais (Dijkstra)
+        # dijkstra
         self.grafo_distancias[origem].append((destino, tempo_distancia))
         self.grafo_distancias[destino].append((origem, tempo_distancia))
         
-        # Para a Árvore Geradora Mínima (Kruskal)
+        # kruskal
         self.arestas.append((tempo_distancia, origem, destino))
         
-        # Para Fluxo Máximo (Direcional)
         self.grafo_capacidades[origem][destino] = capacidade_pedidos
-        # Aresta reversa começa com capacidade 0
         if origem not in self.grafo_capacidades[destino]:
             self.grafo_capacidades[destino][origem] = 0
 
-    # ---------------------------------------------------------
-    # 1. MENOR REDE DE CONEXÕES (Kruskal - Árvore Geradora Mínima)
-    # ---------------------------------------------------------
     def calcular_menor_infraestrutura(self):
-        """Determina a menor rede de conexões para interligar todos os pontos operacionais."""
         parent = {v: v for v in self.vertices}
         rank = {v: 0 for v in self.vertices}
 
@@ -58,7 +48,6 @@ class PesadeloLogistico:
                 return True
             return False
 
-        # Ordena as arestas pelo menor custo/tempo
         self.arestas.sort()
         rede_minima = []
         custo_total = 0
@@ -70,11 +59,7 @@ class PesadeloLogistico:
 
         return rede_minima, custo_total
 
-    # ---------------------------------------------------------
-    # 2. ROTAS E ESTIMATIVAS (Dijkstra)
-    # ---------------------------------------------------------
     def calcular_rota_mais_rapida(self, origem, destino):
-        """Encontra o caminho mais rápido entre um ponto e outro."""
         if origem not in self.vertices or destino not in self.vertices:
             return None, float('inf')
 
@@ -98,8 +83,6 @@ class PesadeloLogistico:
                     distancias[vizinho] = distancia_nova
                     caminho[vizinho] = u
                     heapq.heappush(pq, (distancia_nova, vizinho))
-
-        # Reconstruindo o caminho
         rota = []
         atual = destino
         while atual is not None:
@@ -109,14 +92,8 @@ class PesadeloLogistico:
 
         return rota, distancias[destino]
 
-    # ---------------------------------------------------------
-    # 3. CAPACIDADE MÁXIMA E GARGALOS (Edmonds-Karp / Max Flow)
-    # ---------------------------------------------------------
     def calcular_capacidade_maxima(self, origem, destino):
-        """
-        Calcula o número máximo de pedidos que podem ser atendidos simultaneamente 
-        considerando os limites de cada rota/cozinha.
-        """
+        
         def bfs_caminho_aumento(grafo_residual, s, t, parent):
             visitado = {v: False for v in self.vertices}
             fila = deque([s])
@@ -133,7 +110,6 @@ class PesadeloLogistico:
                             return True
             return False
 
-        # Cria uma cópia profunda para o grafo residual
         grafo_residual = {u: {v: cap for v, cap in vizinhos.items()} 
                           for u, vizinhos in self.grafo_capacidades.items()}
         
@@ -141,20 +117,17 @@ class PesadeloLogistico:
         fluxo_maximo = 0
 
         while bfs_caminho_aumento(grafo_residual, origem, destino, parent):
-            # Encontra a menor capacidade no caminho encontrado (o gargalo)
             fluxo_caminho = float('inf')
             s = destino
             while s != origem:
                 fluxo_caminho = min(fluxo_caminho, grafo_residual[parent[s]][s])
                 s = parent[s]
 
-            # Atualiza as capacidades residuais e arestas reversas
             fluxo_maximo += fluxo_caminho
             v = destino
             while v != origem:
                 u = parent[v]
                 grafo_residual[u][v] -= fluxo_caminho
-                # Se a aresta reversa não existir no residual, cria com 0
                 if u not in grafo_residual[v]:
                     grafo_residual[v][u] = 0
                 grafo_residual[v][u] += fluxo_caminho

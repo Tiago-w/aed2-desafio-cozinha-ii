@@ -4,11 +4,11 @@ import os
 from hash import TabelaHash
 from trie import ArvoreTrie
 from guloso import recomendar_menu_avancado
-from grafo import OficinaProducao
-from mochila01 import MenuVIPOtimizador
-from grafoavançado import PesadeloLogistico
-from caixeiroviajante import PlanejamentoEntregasTSP
-from desafio_extra import MenuDiaDosNamorados
+from grafo import OficinaProducao                    #modulo 5
+from mochila01 import MenuVIPOtimizador              #modulo 6
+from grafoavançado import PesadeloLogistico          #modulo 7
+from caixeiroviajante import PlanejamentoEntregasTSP #modulo 8
+from desafio_extra import MenuDiaDosNamorados        #extra
 
 # saída colorida e caixas com bordas
 try:
@@ -266,10 +266,9 @@ def main():
                 print("Nenhuma sugestão de menu foi gerada.")
 
         elif opcao == "4":
-            print("\n- Modo Oficina de Produção -")
+            print("\n- Modo Oficina de Produção (grafos) -")
             oficina = OficinaProducao()
 
-            print("[+] Carregando dependências do banco de dados...")
             for r in receitas:
                 nome_dependente = r.get("nome")
                 pre_requisitos = r.get("pre_requisitos", []) 
@@ -279,19 +278,19 @@ def main():
                 for pre_req in pre_requisitos:
                     oficina.adicionar_dependencia(pre_req, nome_dependente)
 
-            print("\n1. Qual a sequência correta para produzir o menu do dia?")
+            print("\n1. Sequência correta para produção:")
             sucesso, resultado = oficina.gerar_sequencia_producao()
             if sucesso:
                 print(f" -> Sequência Válida: {resultado}")
             else:
-                print(color(f" -> ERRO CRÍTICO: {resultado}", "red"))
+                print(f" -> Erro: {resultado}")
 
             receita_alvo = input("\n2. Digite o nome da receita para ver seus pré-requisitos: ").strip()
             pre_reqs = oficina.listar_prerequisitos_de(receita_alvo)
             print(f" -> Pré-requisitos para {receita_alvo}: {pre_reqs}\n")
 
         elif opcao == "5":
-            print("\n- Modo Menu Degustação VIP -")
+            print("\n- Modo Menu Degustação VIP (PD) -")
             
             try:
                 tempo_max = int(input("Tempo total disponível para o evento (minutos): "))
@@ -302,7 +301,6 @@ def main():
             print("Critérios disponíveis: avaliacao, lucro, popularidade")
             criterio = input("O que deseja maximizar? ").strip().lower()
             
-            # Validação simples
             if criterio not in ['avaliacao', 'lucro', 'popularidade']:
                 criterio = 'avaliacao'
                 print("Critério inválido. Usando 'avaliacao' como padrão.")
@@ -326,7 +324,6 @@ def main():
             
             logistica = PesadeloLogistico()
             
-            # Carregando do JSON dinamicamente
             for rota in rotas:
                 logistica.adicionar_rota(
                     rota["origem"], 
@@ -335,8 +332,7 @@ def main():
                     rota["limite_pedidos"]
                 )
             
-            print("\n1. Menor Rede de Conexões (Kruskal - MST)")
-            print("Objetivo: Interligar todos os pontos operacionais com o menor custo/tempo.")
+            print("\n1. Menor Rede de Conexões (Kruskal / AGM)")
             rede, custo = logistica.calcular_menor_infraestrutura()
             for u, v, peso in rede:
                 print(f"Instalar conexão: {u} <-> {v} (Custo: {peso})")
@@ -344,7 +340,6 @@ def main():
             
             print("2. Rotas e Estimativas de Tempo (Dijkstra)")
             
-            # Deixando dinâmico para o usuário escolher a rota!
             origem_busca = input("Digite o ponto de origem (ex: Cozinha Matriz): ").strip()
             destino_busca = input("Digite o destino (ex: Bairro Nobre): ").strip()
             
@@ -363,31 +358,26 @@ def main():
         elif opcao == "7":
             print("\n- Modo Inovação do Chef (Múltiplas Entregas - TSP) -")
             
-            # Carregando a malha logística silenciosamente para o TSP poder usar
             logistica = PesadeloLogistico()
             for rota in rotas:
                 logistica.adicionar_rota(rota["origem"], rota["destino"], rota["tempo_minutos"], rota["limite_pedidos"])
             
             tsp = PlanejamentoEntregasTSP(logistica)
             
-            # 1. Pegando a origem de forma dinâmica
             origem = input("Digite o ponto de partida do entregador (ex: Cozinha Matriz): ").strip().title()
             
-            # 2. Pegando os múltiplos destinos de forma dinâmica
             print("\nDigite os bairros de entrega separados por vírgula.")
             entrada_bairros = input("Ex (Bairro Nobre, Bairro Industrial, Bairro Centro): ")
             
-            # 3. Tratamento de dados: separa por vírgula, tira espaços em branco e arruma as maiúsculas
             bairros_para_visitar = [b.strip().title() for b in entrada_bairros.split(",") if b.strip()]
             
             if not bairros_para_visitar:
-                print(color("   -> Erro: Você não digitou nenhum bairro válido.\n", "red"))
+                print("   -> Erro: Você não digitou nenhum bairro válido.\n")
                 continue
             
             print(f"\nO entregador sairá da(o) {origem}.")
             print(f"Ele precisa entregar pedidos nos seguintes locais: {', '.join(bairros_para_visitar)}")
 
-            # 4. Chama o algoritmo com as listas dinâmicas
             melhor_rota, menor_tempo = tsp.calcular_rota_tsp_exata(origem, bairros_para_visitar)
             
             if melhor_rota:
@@ -411,7 +401,6 @@ def main():
                 mapa_objetivos = {"1": "lucro", "2": "avaliacao", "3": "tempo"}
                 objetivo = mapa_objetivos.get(escolha_obj, "lucro")
 
-                # Instancia a classe passando a lista de receitas carregada do JSON
                 gerador_menu = MenuDiaDosNamorados(receitas)
                 melhor_menu = gerador_menu.selecionar_melhor_menu(tempo_max, custo_max, objetivo)
                 
@@ -427,7 +416,6 @@ def main():
                     print(f"Avaliação média: {melhor_menu['avaliacao_media']}")
                     print(f"Dificuldade logística: {melhor_menu['dificuldade_logistica']}\n")
                     
-                    # Justificativa simples
                     print("Justificativa:")
                     print(f"O menu foi escolhido por otimizar o critério de '{objetivo}' dentro dos limites de custo (R$ {custo_max:.2f}) e tempo ({tempo_max} min).")
                 else:
